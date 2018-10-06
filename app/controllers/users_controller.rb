@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-    render json: @users, only: [:id, :username, :token]
+    render json: @users, only: [:id, :username, :token, :is_available]
   end
 
   # GET /users/1

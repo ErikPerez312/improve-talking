@@ -14,6 +14,10 @@ gem 'sqlite3'
 gem 'puma', '~> 3.7'
 # Authentication
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+# Loading Envs
+gem 'dotenv'
+# Twilio
+gem 'twilio-ruby', '~> 5.7.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
