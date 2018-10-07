@@ -12,8 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20181006215932) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "available_users", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_available_users_on_user_id"
@@ -30,4 +33,5 @@ ActiveRecord::Schema.define(version: 20181006215932) do
     t.index ["token"], name: "index_users_on_token", unique: true
   end
 
+  add_foreign_key "available_users", "users"
 end
