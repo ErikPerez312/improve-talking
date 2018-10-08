@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     def error_message(user)
       error_hash = user.errors.to_hash()
       if error_hash.key?(:username)
-        return "Invalid username entry"
+        return return (error_hash[:username][0] == "has already been taken") ? "Username already exists" : "Invalid username entry"
       elsif error_hash.key?(:password)
         return "Invalid password entry"
       end
