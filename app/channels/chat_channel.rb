@@ -15,7 +15,7 @@ class ChatChannel < ApplicationCable::Channel
     available_user.user = current_user
     available_user.save
 
-    available_users = AvailableUsers.where.not(user: current_user).order("created_at")
+    available_users = AvailableUser.where.not(user: current_user).order("created_at")
     remote_partner = ""
 
     available_users.each { |remote_available_user|
