@@ -18,10 +18,10 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'dotenv'
 # Twilio
 gem 'twilio-ruby', '~> 5.7.2'
+# Use Redis adapter to run Action Cable in production
+gem 'redis'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
