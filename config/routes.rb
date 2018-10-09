@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   put '/users/:id', to: 'users#update'
 
   get 'session', to: 'sessions#index'
+
+  mount ActionCable.server => "/cable"
 end
