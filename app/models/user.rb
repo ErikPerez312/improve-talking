@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
-  validates :password, presence: true
 
   # 1. Hash password before saving a User
   before_save :encrypt_password
