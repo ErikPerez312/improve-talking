@@ -26,6 +26,7 @@ class ChatChannel < ApplicationCable::Channel
       possible_partner = remote_available_user.user
 
       if possible_partner.is_available && current_user.is_available
+        remote_partner = possible_partner
         possible_partner.is_available = false
         possible_partner.save
         current_user.is_available = false
@@ -43,7 +44,7 @@ class ChatChannel < ApplicationCable::Channel
 
       # Users are no longer available
       delete_from_available_table(current_user)
-      delete_from_available_table(partner)
+      delete_from_available_table(remote_partner)
 
       # Notify current_user of connection
       ActionCable.server.broadcast(
@@ -92,6 +93,8 @@ class ChatChannel < ApplicationCable::Channel
     end
 
     def delete_from_available_table(user)
+      user.is_available = false
+      user.save
       unavailable_user = AvailableUser.find_by(user: user)
       if unavailable_user
         unavailable_user.destroy
